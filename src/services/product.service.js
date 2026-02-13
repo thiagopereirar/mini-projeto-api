@@ -4,12 +4,8 @@ const productService = {
   create: async (productData) => {
     const { nome, preco } = productData;
 
-    const min_name_length = 2;
-    if (
-      !nome ||
-      typeof nome !== "string" ||
-      nome.trim().length < min_name_length
-    )
+    const minNameLength = 2;
+    if (!nome || typeof nome !== "string" || nome.trim().length < minNameLength)
       throw new Error("O nome do produto deve ter pelo menos 2 caracteres");
 
     if (!preco || preco <= 0) {
